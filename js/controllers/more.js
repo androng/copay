@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('MoreController',
-  function($scope, $rootScope, $location, $filter, $timeout, balanceService, notification, rateService, backupService, identityService, isMobile, isCordova, go, pendingTxsService) {
+  function($scope, $rootScope, $location, $filter, $timeout, balanceService, notification, rateService, backupService, identityService, isMobile, isCordova, go) {
     var w = $rootScope.wallet;
     var max = $rootScope.quotaPerItem;
     $scope.isSafari = isMobile.Safari();
@@ -87,7 +87,6 @@ angular.module('copayApp.controllers').controller('MoreController',
       });
       notification.success('Success', $filter('translate')('settings successfully updated'));
       balanceService.update(w, function() {
-        pendingTxsService.update();
         $rootScope.$digest();
       });
     }; 

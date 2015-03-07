@@ -22,6 +22,10 @@ angular.module('copayApp.controllers').controller('SidebarController', function(
     'title': 'History',
     'icon': 'icon-history',
     'link': 'history'
+  }, {
+    'title': 'Tickets',
+    'icon': 'icon-history',
+    'link': 'tickets'
   }];
 
   $scope.signout = function() {

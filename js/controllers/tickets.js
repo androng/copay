@@ -1,11 +1,11 @@
 'use strict';
 var bitcore = require('bitcore');
 
-angular.module('copayApp.controllers').controller('HistoryController',
+angular.module('copayApp.controllers').controller('TicketsController',
   function($scope, $rootScope, $filter, $timeout, $modal, rateService, notification, go) {
     var w = $rootScope.wallet;
 
-    $rootScope.title = 'History';
+    $rootScope.title = 'Tickets';
     $scope.loading = false;
     $scope.generating = false;
     $scope.lastShowed = false;

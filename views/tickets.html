@@ -1,4 +1,4 @@
-<div class="transactions" data-ng-controller="HistoryController" data-ng-init="update()">
+<div class="transactions" data-ng-controller="TicketsController" data-ng-init="update()">
   <div class="row">
     <div class="large-12 medium-12 small-12 columns">
       <h1 class="show-for-large-up">{{$root.title}}</h1> 
@@ -27,6 +27,7 @@
       class="row last-transactions-content">
 
         <div class="large-6 medium-6 small-5 columns">
+          <qrcode size="220" data={{btx.comment}}></qrcode>
           <div class="ellipsis">
             {{btx.comment || btx.labelTo}} &nbsp;
           </div>
@@ -35,6 +36,10 @@
             <span translate class="text-warning" 
               ng-show="!btx.ts && (!btx.confirmations || btx.confirmations == 0)">
               Unconfirmed
+            </span>
+            <span translate class="text-warning" 
+              ng-show="!btx.ts && (!btx.confirmations || btx.confirmations == 0)">
+              Redeemed
             </span>
           </div>
         </div>

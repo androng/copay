@@ -112,8 +112,7 @@ module.exports = function(grunt) {
           'lib/file-saver/FileSaver.js',
           'lib/socket.io-client/socket.io.js',
           'lib/sjcl.js',
-          'lib/qrcode-decoder-js/lib/qrcode-decoder.min.js',
-          'lib/moment/lang/*.js'
+          'lib/qrcode-decoder-js/lib/qrcode-decoder.min.js'
         ],
         dest: 'lib/vendors.js'
       },

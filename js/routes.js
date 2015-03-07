@@ -80,6 +80,11 @@ angular
         walletShouldBeComplete: true,
         logged: true
       })
+      .when('/tickets', {
+        templateUrl: 'views/tickets.html',
+        walletShouldBeComplete: true,
+        logged: true
+      })
       .when('/send', {
         templateUrl: 'views/send.html',
         walletShouldBeComplete: true,
@@ -139,20 +144,9 @@ angular
     $idleProvider.warningDuration(40); // in seconds
     $keepaliveProvider.interval(30); // in seconds
   })
-  .run(function($rootScope, $location, $idle, gettextCatalog, uriHandler, isCordova, amMoment) {
+  .run(function($rootScope, $location, $idle, gettextCatalog, uriHandler, isCordova) {
 
-    var userLang, androidLang;
-
-    if (navigator && navigator.userAgent && (androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
-      userLang = androidLang[1];
-    } else {
-      // works for iOS and Android 4.x
-      userLang = navigator.userLanguage || navigator.language;
-    }
-
-    userLang = userLang ? (userLang.split('-', 1)[0] || 'en') : 'en';
-    gettextCatalog.setCurrentLanguage(userLang);
-    amMoment.changeLanguage(userLang);
+    gettextCatalog.currentLanguage = config.defaultLanguage;
 
     // Register URI handler, not for mobileApp
     if (!isCordova) {
